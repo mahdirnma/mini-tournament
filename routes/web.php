@@ -14,9 +14,12 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::middleware('check.teams')->group(function () {
+    Route::get('/teams',[TeamController::class,'index'])->name('teams.index');
+    Route::post('/tournaments/{team}/store',[TournamentController::class,'store'])->name('tournaments.store');
+});
+Route::middleware('check.tournaments')->group(function () {
+    Route::get('/tournaments',[TournamentController::class,'index'])->name('tournaments.index');
 
-Route::get('/teams',[TeamController::class,'index'])->name('teams.index');
-Route::post('/tournaments/{team}/store',[TournamentController::class,'store'])->name('tournaments.store');
-
-Route::get('/tournaments',[TournamentController::class,'index'])->name('Tournaments.index');
+});
 
