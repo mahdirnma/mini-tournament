@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Team;
 use App\Models\Tournament;
 use App\Http\Requests\StoreTournamentRequest;
 use App\Http\Requests\UpdateTournamentRequest;
@@ -27,9 +28,12 @@ class TournamentController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreTournamentRequest $request)
+    public function store(Team $team)
     {
-        //
+        Tournament::create([
+            'team_id'=>$team->id
+        ]);
+        return redirect()->back();
     }
 
     /**

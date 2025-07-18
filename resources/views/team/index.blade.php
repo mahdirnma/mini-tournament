@@ -23,7 +23,7 @@
                         <tr>
                             <td class="text-center">
                                 @if($team->tournament==null)
-                                    <form action="{{--{{route('tournament.store',compact('team'))}}--}}" method="post">
+                                    <form action="{{route('tournaments.store',compact('team'))}}" method="post">
                                         @csrf
                                         <button type="submit" class="text-cyan-600 cursor-pointer">add</button>
                                     </form>
