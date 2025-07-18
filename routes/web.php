@@ -17,3 +17,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/teams',[TeamController::class,'index'])->name('teams.index');
 Route::post('/tournaments/{team}/store',[TournamentController::class,'store'])->name('tournaments.store');
+
+Route::get('/tournaments',[TournamentController::class,'index'])->name('Tournaments.index');
+
