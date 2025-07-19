@@ -20,6 +20,6 @@ Route::middleware('check.teams')->group(function () {
 });
 Route::middleware('check.tournaments')->group(function () {
     Route::get('/tournaments',[TournamentController::class,'index'])->name('tournaments.index');
-
+    Route::post('/tournaments/create',[TournamentController::class,'create'])->name('tournaments.create');
 });
 

@@ -18,8 +18,8 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <form action="{{--{{route('tournament.create')}}--}}" method="post">
-                        @if($teams[0]->games_count==0)
+                    @if($teams[0]->games_count==0)
+                        <form action="{{route('tournaments.create')}}" method="post">
                             @csrf
                             <tr>
                                 <td class="text-center">
@@ -47,7 +47,11 @@
                                     game 2
                                 </td>
                             </tr>
-                        @elseif($teams[0]->games_count==1)
+                            <button type="submit" class="w-20 border-2 border-b-cyan-700 mb-8 cursor-pointer">SET</button>
+                        </form>
+                    @elseif($teams[0]->games_count==1)
+                        <form action="{{route('tournaments.create')}}" method="post">
+                            @csrf
                             <tr>
                                 <td class="text-center">
                                     <label for="{{$teams[0]->team_id}}">{{$teams[0]->team->title}}</label>
@@ -74,7 +78,11 @@
                                     game 2
                                 </td>
                             </tr>
-                        @elseif($teams[0]->games_count==2)
+                            <button type="submit" class="w-20 border-2 border-b-cyan-700 mb-8 cursor-pointer">SET</button>
+                        </form>
+                    @elseif($teams[0]->games_count==2)
+                        <form action="{{route('tournaments.create')}}" method="post">
+                            @csrf
                             <tr>
                                 <td class="text-center">
                                     <label for="{{$teams[0]->team_id}}">{{$teams[0]->team->title}}</label>
@@ -101,9 +109,9 @@
                                     game 2
                                 </td>
                             </tr>
-                        @endif
-                        <button type="submit" class="w-20 border-2 border-b-cyan-700 mb-8 cursor-pointer">SET</button>
-                    </form>
+                            <button type="submit" class="w-20 border-2 border-b-cyan-700 mb-8 cursor-pointer">SET</button>
+                        </form>
+                    @endif
                     </tbody>
                 </table>
             </div>
