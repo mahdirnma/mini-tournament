@@ -183,6 +183,7 @@ class TournamentController extends Controller
                     'score'=>$scores[$tournament->team_id],
                 ]);
             }
+            return redirect()->route('results.index');
         }
     }
 
