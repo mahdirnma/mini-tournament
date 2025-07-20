@@ -66,5 +66,6 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'check.teams' => \App\Http\Middleware\CheckTeams::class,
         'check.tournaments' => \App\Http\Middleware\CheckTournaments::class,
+        'check.games' => \App\Http\Middleware\CheckGames::class,
     ];
 }

@@ -20,8 +20,10 @@ Route::middleware('check.teams')->group(function () {
     Route::post('/tournaments/{team}/store',[TournamentController::class,'store'])->name('tournaments.store');
 });
 Route::middleware('check.tournaments')->group(function () {
-    Route::get('/tournaments',[TournamentController::class,'index'])->name('tournaments.index');
-    Route::post('/tournaments/create',[TournamentController::class,'create'])->name('tournaments.create');
+    Route::middleware('check.games')->group(function () {
+        Route::get('/tournaments',[TournamentController::class,'index'])->name('tournaments.index');
+        Route::post('/tournaments/create',[TournamentController::class,'create'])->name('tournaments.create');
+    });
     Route::get('/results',[ResultController::class,'index'])->name('results.index');
 });
 
