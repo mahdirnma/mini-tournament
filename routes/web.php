@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ResultController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\TournamentController;
 use Illuminate\Support\Facades\Route;
@@ -21,5 +22,6 @@ Route::middleware('check.teams')->group(function () {
 Route::middleware('check.tournaments')->group(function () {
     Route::get('/tournaments',[TournamentController::class,'index'])->name('tournaments.index');
     Route::post('/tournaments/create',[TournamentController::class,'create'])->name('tournaments.create');
+    Route::get('/results',[ResultController::class,'index'])->name('results.index');
 });
 
